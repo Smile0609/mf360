@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/index.css" type="text/css">
+    <!--我要使用fullpage ，但是这个fullpage 是基于jQuery 的一个插件，
+    我先要引入jQuery 的库，再引入插件对应的库
+    -->
+    <script src="js/jquery.min.js"></script>
+
+    <!--必须放在jQuery 的下面-->
+    <script src="js/jquery.fullPage.min.js"></script>
+
+</head>
+<body>
+     <!--
+            为了演示，我就把页面的结构先定好.
+     -->
+     <div id="fullpage">
+         <div class="first section">
+                 <div class="logo"></div>
+                 <div class="text">
+                     <img src="images/text_1.png" alt="">
+                     <img src="images/text_2.png" alt="">
+                     <img src="images/text_3.png" alt="">
+                     <img src="images/text_4.png" alt="">
+                     <img src="images/text_5.png" alt="">
+                     <img src="images/text_6.png" alt="">
+                     <img src="images/text_7.png" alt="">
+                     <img src="images/text_8.png" alt="">
+                 </div>
+                 <div class="info"></div>
+         </div>
+         <div class="seconds section">
+                <!--页面结构先定义好.
+                shield 盾牌
+                -->
+                <div class="shield">
+                    <img src="images/shield_1.png" alt="">
+                    <img src="images/shield_2.png" alt="">
+                    <img src="images/shield_3.png" alt="">
+                    <img src="images/shield_4.png" alt="">
+                    <img src="images/shield_5.png"  alt="">
+                    <img src="images/shield_6.png" alt="">
+                    <img src="images/shield_7.png" alt="">
+                    <img src="images/shield_8.png" alt="">
+                    <img src="images/shield_9.png" alt="">
+                </div>
+                <div class="info"> </div>
+         </div>
+         <div class="thrid section">
+                    <div class="info"></div>
+                    <div class="circle"></div>
+                    <div class="rocket"></div>
+         </div>
+         <div class="fourth section">
+                <div class="searchbar">
+                        <div class="topbar"></div>
+                        <div class="text"></div>
+                        <div class="search">
+                            <div class="result"></div>
+                        </div>
+                </div>
+                <div class="info">
+                </div>
+         </div>
+         <div class="fivth section active ">
+                <!--我需要 定义两个盒子-->
+                <div class="info"></div>
+                <!--浏览器-->
+                <div class="browser">
+                        <div class="bg"></div>
+                        <div class="line line1"></div>
+                        <div class="line line2"></div>
+                        <div class="line line3"></div>
+                        <div class="line line4"></div>
+                        <div class="topbar"></div>
+                        <div class="extra"></div>
+                </div>
+         </div>
+     </div>
+
+     <!--
+            当页面加载完毕，我就调用jQuery 的fullpage 提供的一个方法，来进行页面初始化.
+
+     -->
+     <script>
+            $(function(){
+                    /*
+                    * fullpage  是扩展的jQuery
+                    *
+                    * fullpage 要求，的每一屏幕都加一个section 的样式.
+                    *
+                    *
+                    * 怎么去每一屏幕怎么去做动画
+                    *
+                    * fullpage 调用的fullpage ，这个插件，一般它会提供文档给我们
+                    *
+                    * fullpage 我们需要查看文档
+                    *
+                    * 接下来就是给这个方法传递参数的问题
+                    * */
+
+
+                    $("#fullpage").fullpage({
+                         /*
+                          *
+                          *
+                          * */
+                         afterLoad:function(aclink,index){
+                                //这是一个回调函数
+                                //将一个函数作为参数传递，作为参数传递的函数就是回调函数.
+                                //你只需要知道这个回调函数什么时候的调用.
+                                /*我现在要知道的是index*/
+                                console.log(index);
+
+                                /*
+                                *
+                                *   我的目的就是想要页面有动画效果，有css 效果.
+                                *   js 想要页面有界面效果
+                                *   可以添加一个类名
+                                *   滚动到某一屏幕，给他添加一个类名上面，然后在css 里面添加对应的样式
+                                *  就可以实现页面效果.
+                                * */
+                                //假设滚动到第一屏我先给谁
+                                //$(".section") 是一个数组
+                                /*
+                                *   因为页面加载的时候css，加载js，这个操作是同时进行
+                                *   我可以延迟一小会在动态给这个屏幕添加样式
+                                * */
+                                //window.setInterval(function(){},1000) 定时器
+                                //window.setTimeout(function(){},1000) 1000秒钟之后执行 function(){}
+                                 window.setTimeout(function(){
+                                     $(".section").removeClass("current").eq(index-1).addClass("current");
+                                 },100);
+
+                         }
+                    });
+
+            });
+
+
+     </script>
+</body>
+</html>

@@ -1,0 +1,321 @@
+﻿/*为每一屏幕去定义一个颜色*/
+/*
+    第一屏幕
+*/
+body {
+        padding: 0;
+        margin: 0;
+}
+
+.first{
+    background-color: #0da5d6;
+    padding-top: 10px;
+}
+
+.first .logo{
+     background: url("../images/logo.png") no-repeat center;
+     width: 251px;
+     height: 186px;
+     margin: 0 auto;
+}
+
+.first .text{
+    text-align: center;
+    margin: 30px 10px;
+}
+
+.first .text img{
+     margin: 40px 30px;
+     opacity: 0.1;
+
+}
+
+.first .info{
+     background: url("../images/info_1.png");
+     width: 772px;
+     height: 49px;
+     margin: 50px auto;
+}
+
+/*第一屏动画*/
+.first.current .text img{
+    margin: 40px 3px;
+    transition:all 1s linear;
+    opacity: 1;
+}
+
+/*第二屏幕*/
+.seconds{
+    background-color: #2AB561;
+}
+
+.seconds>div{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+
+.seconds .shield{
+     width: 500px;
+}
+.seconds .shield img{
+     float: left;
+}
+
+
+.seconds .shield img:nth-child(1){
+     transform:translate(400px,300px) rotate(45deg);
+}
+.seconds .shield img:nth-child(2){
+    transform:translate(100px,200px) rotate(345deg);
+}
+.seconds .shield img:nth-child(3){
+    transform:translate(-400px,100px) rotate(245deg);
+}
+.seconds .shield img:nth-child(4){
+    transform:translate(200px,200px) rotate(145deg);
+}
+.seconds .shield img:nth-child(5){
+    transform:translate(200px,-100px) rotate(24deg);
+}
+
+
+.seconds .info{
+     float: left;
+     background: url("../images/info_2.png");
+     width: 635px;
+     height: 309px;
+}
+
+
+/*
+    第二屏幕添加样式.
+*/
+.seconds.current .shield img{
+     transform:translate(0px,0px) rotate(0deg);
+    transition:all 1s linear;
+}
+
+
+
+/*第三屏幕*/
+
+.thrid{
+    background-color: #DE8910;
+    position: relative;
+    overflow: hidden;
+}
+.thrid>div{
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+}
+
+.thrid .info{
+     background: url("../images/info_3.png");
+     width: 631px;
+     height: 278px;
+}
+
+.thrid .circle{
+     background: url("../images/circle.png");
+     width: 453px;
+     height: 449px;
+}
+
+.thrid .rocket{
+     background: url("../images/rocket.png");
+     width: 203px;
+     height: 204px;
+     position: absolute;
+     left: 0;
+     bottom: 0;
+     transform: translate(100px,300px);
+}
+
+/*第三屏幕动画*/
+.thrid.current .rocket{
+      transform: translate(947px,-240px);
+      transition:all 1s linear;
+}
+
+/*第四屏幕*/
+.fourth{
+    background-color:#0EA9B1;
+}
+
+.fourth>div{
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+}
+
+.fourth .searchbar{
+     width: 539px;
+     height: 400px;
+    position: relative;
+}
+
+.fourth .searchbar .topbar{
+     background: url("../images/search.png");
+     width: 529px;
+     height: 66px;
+     transform: translateX(-120%);
+}
+
+.fourth .searchbar .text{
+      background: url("../images/key.png");
+      width: 0px;
+      height: 22px;
+      position: absolute;
+      left: 20px;
+      top: 23px;
+}
+.fourth .searchbar .search{
+      overflow: hidden;
+       margin-top: -13px;
+}
+
+.fourth .searchbar .result{
+      background: url("../images/result.png");
+      width: 529px;
+      height: 372px;
+     transform:translateY(-100%);
+}
+
+.fourth .info{
+      background: url("../images/info_4.png");
+      width: 612px;
+      height: 299px;
+}
+
+
+.fourth.current .topbar{
+     transform:translateX(0%);
+     transition:all 1s linear ;
+}
+
+.fourth.current .text{
+     animation: changeWidth 1s steps(5) 1.3s 1 forwards;
+}
+
+.fourth.current .result{
+    transform: translateY(-13px);
+    transition:all 1s linear 2.5s;
+}
+
+
+
+/*定义动画*/
+@keyframes changeWidth {
+    0%{
+       width:0px;
+    }
+    100%{
+       width: 99px;
+    }
+}
+
+
+
+/*第五屏幕*/
+.fivth{
+    background-color: #0DA5D6;
+    overflow: hidden;
+}
+
+.fivth>div{
+    display: flex;
+    /*
+        调整主轴的方向
+    */
+    flex-direction: column;
+
+    /*改变的主轴的方向，原来的主轴就变成了侧轴*/
+    align-items: center;
+
+
+}
+
+.fivth .info{
+    background: url("../images/info_5.png");
+    width: 1077px;
+    height: 134px;
+}
+
+.fivth .browser{
+     width: 1004px;
+     flex: 1;
+     position: relative;
+}
+.fivth .browser .bg{
+     background: url("../images/toolbar.png");
+     width: 1004px;
+     height: 79px;
+}
+.line{
+     position: absolute;
+     background: rgba(255,255,255,0.3)
+}
+/*左边的边框*/
+.line1{
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    transform: translateY(-130%);
+}
+/*顶部的*/
+.line2{
+     left: 0;
+     top: 0;
+     width: 100%;
+     height: 1px;
+     transform: translateX(130%);
+}
+/*右边的*/
+.line3{
+     top: 0;
+     right: 0;
+     width: 1px;
+     height: 100%;
+     transform:translateY(100%);
+}
+/*底部的*/
+.line4{
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+}
+
+/**/
+.fivth  .topbar{
+     width: 0px;
+     height: 27px;
+     border: 1px solid rgba(255,255,255,0.3);
+     position: absolute;
+     left: 110px;
+     top: 30px;
+}
+
+.fivth .extra
+{
+     background: url("../images/extra.png");
+     width: 394px;
+     height: 29px;
+     position: absolute;
+     bottom: 0;
+     right: 0;
+}
+
+.fivth.current .line{
+        transform:translate(0px,0px);
+        transition:all 1s linear;
+}
+
+.fivth.current  .topbar{
+      width: 873px;
+      transition:all 1s linear 1.3s;
+}
+
